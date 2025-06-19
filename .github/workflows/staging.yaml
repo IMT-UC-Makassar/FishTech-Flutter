@@ -65,3 +65,10 @@ jobs:
         with:
           name: staging-apk
           path: build/app/outputs/flutter-apk/app-debug.apk
+
+      - name: Upload APK to GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build/app/outputs/flutter-apk/app-debug.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
